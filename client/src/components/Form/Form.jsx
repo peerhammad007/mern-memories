@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPost, updatePost } from '../actions/posts.js';
+import { createPost, updatePost } from '../../actions/posts.js';
 import useStyles from './Styles.js'
 
 const Form = ({currentId, setCurrentId}) => {
@@ -13,7 +13,7 @@ const Form = ({currentId, setCurrentId}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      if(post) setPostData(post);
+        if(post) setPostData(post);
     }, [post])
     
 
@@ -22,6 +22,7 @@ const Form = ({currentId, setCurrentId}) => {
         
         if (currentId) {
             dispatch(updatePost(currentId, postData));
+            
         }else {
             dispatch(createPost(postData));
         }
